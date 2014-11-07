@@ -1,11 +1,8 @@
-<?php $pg = 'empresa'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <title>Conheça a Empresa - PHP Foundation + Twitter Bootstrap</title>
     <?php include_once('inc/head.php');?>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 </head>
 <body>
     <div class="container">
@@ -28,7 +25,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- RODAPE -->
     <?php include_once('inc/rodape.php'); ?>

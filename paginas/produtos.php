@@ -1,22 +1,19 @@
 <?php
-$pg = 'produtos';
-if(isset($_GET['p']) and $_GET['p']!=null){
-    $produto = $_GET['p'];
+$requestpagina = $_SERVER["REQUEST_URI"];
+
+if(contaParametros($requestpagina)>2) {
+    $parametro = obtemParametro($requestpagina);
+    if($parametro!='grafico' and $parametro!='web' and $parametro!='programacao'){ $parametro = 'todos';}
 } else {
-    $produto = 'todos';
+    $parametro = 'todos';
 }
 
-if($produto!='grafico' and $produto!='web' and $produto!='programacao' and $produto!='todos'){
-    $produto = null;
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <title>Produtos - PHP Foundation + Twitter Bootstrap</title>
     <?php include_once('inc/head.php');?>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 </head>
 <body>
     <div class="container">
@@ -32,7 +29,7 @@ if($produto!='grafico' and $produto!='web' and $produto!='programacao' and $prod
         <!-- CONTEUDO -->
         <div class="col-lg-12" id="empresa">
 
-        <?php if($produto==='todos' or $produto==='grafico'){ ?>
+        <?php if($parametro==='todos' or $parametro==='grafico'){ ?>
         <!-- DESIGN GRÁFICO -->
         <div class="col-lg-12">
             <h2>DESIGN GRÁFICO:</h2>
@@ -42,7 +39,7 @@ if($produto!='grafico' and $produto!='web' and $produto!='programacao' and $prod
         </div>
         <?php } ?>
 
-        <?php if($produto==='todos' or $produto==='web'){ ?>
+        <?php if($parametro==='todos' or $parametro==='web'){ ?>
             <!-- DESIGN WEB -->
             <div class="col-lg-12">
                 <h2>DESIGN WEB:</h2>
@@ -52,7 +49,7 @@ if($produto!='grafico' and $produto!='web' and $produto!='programacao' and $prod
             </div>
         <?php } ?>
 
-        <?php if($produto==='todos' or $produto==='programacao'){ ?>
+        <?php if($parametro==='todos' or $parametro==='programacao'){ ?>
             <!-- PROGRAMAÇÃO -->
             <div class="col-lg-12">
                 <h2>PROGRAMAÇÃO:</h2>
@@ -62,7 +59,7 @@ if($produto!='grafico' and $produto!='web' and $produto!='programacao' and $prod
             </div>
         <?php } ?>
 
-        <?php if($produto===null){ ?>
+        <?php if($parametro===null){ ?>
             <!-- NADA -->
             <div class="col-lg-8">
                 <h2>NENHUM PRODUTO ENCONTRADO</h2>

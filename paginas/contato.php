@@ -1,13 +1,8 @@
-<?php
-$pg = 'contato';
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <title>Contato - PHP Foundation + Twitter Bootstrap</title>
     <?php include_once('inc/head.php');?>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 </head>
 <body>
     <div class="container">
@@ -22,7 +17,7 @@ $pg = 'contato';
         <?php if($_SERVER['REQUEST_METHOD']!='POST'){ ?>
         <div class="col-lg-5">
         <!-- FORMULÁRIO -->
-        <form class="form-horizontal" name="contato" method="post" enctype="multipart/form-data" action="contato.php">
+        <form class="form-horizontal" name="contato" method="post" enctype="multipart/form-data" action="contato">
             <fieldset>
                 <h2>Envie uma mensagem</h2>
                 <p>Preencha corretamente o formulário abaixo e responderemos o mais breve possível.</p>

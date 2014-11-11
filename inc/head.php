@@ -4,6 +4,5 @@
 <meta name="author" content="Junior Maciel" />
 <link rel="Icon" href="favicon.ico" type="image/x-icon" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<base href="http://localhost/sitesimples/" />
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">

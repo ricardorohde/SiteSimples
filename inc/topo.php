@@ -11,25 +11,11 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li<?php if($pg==='home'){    echo ' class="active"'; }?>><a href="home">Home</a></li>
-                <li<?php if($pg==='empresa'){ echo ' class="active"'; }?>><a href="empresa">Empresa</a></li>
-                <li class="dropdown">
-                    <a href="produtos" class="dropdown-toggle<?php if($pg==='produtos'){echo ' active"'; }?>" data-toggle="dropdown" aria-expanded="false">Produtos<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="produtos/grafico">Design Gráfico</a></li>
-                        <li><a href="produtos/web">Design Web</a></li>
-                        <li><a href="produtos/programacao">Programação</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="servicos" class="dropdown-toggle<?php if($pg==='servicos'){echo ' active"'; }?>" data-toggle="dropdown" aria-expanded="false">Serviços<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="servicos/logomarca">Logomarcas</a></li>
-                        <li><a href="servicos/seo">SEO (Search Engine Optimization)</a></li>
-                        <li><a href="servicos/otimizacao">Otimização de websites</a></li>
-                    </ul>
-                </li>
-                <li<?php if($pg==='contato'){ echo ' class="active"'; }?>><a href="contato">Contato</a></li>
+                <li><a href="home">Home</a></li>
+                <li><a href="empresa">Empresa</a></li>
+                <li><a href="produtos">Produtos</a></li>
+                <li><a href="servicos">Serviços</a></li>
+                <li><a href="contato">Contato</a></li>
             </ul>
         </div>
     </div>

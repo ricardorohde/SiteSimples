@@ -10,9 +10,5 @@
 body { padding: 20px 0 0 0; background: url(../img/bg.png) top center repeat;}
 .navbar {margin-bottom: 20px; }
 #logo{ padding-top:10px; }
-.bannerHome{background: url(../img/bgBanner.jpg) top left no-repeat; height: 315px;}
-.bannerEmpresa{background: url(../img/bgBannerEmpresa.jpg) top left no-repeat; height: 315px;}
-.bannerProdutos{background: url(../img/bgBannerProdutos.jpg) top left no-repeat; height: 315px;}
-.bannerServicos{background: url(../img/bgBannerServicos.jpg) top left no-repeat; height: 315px;}
 #servicos, #empresa {background: #FFF; border-radius: 10px; padding: 30px;}
 #rodape {background: #FFF; border-radius: 10px 10px 0 0; padding: 20px 0; margin-top:20px; text-align: center; color: #282828;}

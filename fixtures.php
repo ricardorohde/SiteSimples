@@ -25,6 +25,16 @@ $stmt->execute();
 $stmt = null;
 
 
+echo 'Deletando tabela usuarios<br/>';
+$sql = "DROP TABLE usuarios";
+$stmt = $conexao->prepare($sql);
+$stmt->execute();
+$stmt = null;
+
+
+
+
+
 // cria tabela paginas
 echo 'Recriando a tabela paginas<br/>';
 $sql = "CREATE TABLE IF NOT EXISTS paginas (idpagina SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT, titulo VARCHAR(255) NOT NULL, nome VARCHAR(45) NOT NULL, conteudo MEDIUMTEXT NOT NULL, PRIMARY KEY (idpagina)) ENGINE = MyISAM DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;";
@@ -43,6 +53,14 @@ $stmt = null;
 // cria tabela banners
 echo 'Recriando a tabela produtoseservicos<br/>';
 $sql = "CREATE TABLE IF NOT EXISTS produtoseservicos (idprodutoeservico SMALLINT(2) UNSIGNED NOT NULL AUTO_INCREMENT, imagem VARCHAR(45) NOT NULL, titulo VARCHAR(255) NOT NULL,descricao VARCHAR(255) NOT NULL,tipo ENUM('produtos','servicos') NOT NULL, PRIMARY KEY (idprodutoeservico)) ENGINE = MyISAM DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci;";
+$stmt = $conexao->prepare($sql);
+$stmt->execute();
+$stmt = null;
+
+
+// cria tabela usuarios
+echo 'Recriando a tabela usuarios<br/>';
+$sql = "CREATE TABLE IF NOT EXISTS usuarios (idusuario SMALLINT(2) UNSIGNED NOT NULL AUTO_INCREMENT, usuario VARCHAR(255) NOT NULL, senha VARCHAR(255) NOT NULL, PRIMARY KEY (idusuario)) ENGINE = MyISAM DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci";
 $stmt = $conexao->prepare($sql);
 $stmt->execute();
 $stmt = null;
@@ -86,5 +104,14 @@ $sql = "INSERT INTO banners (banner, pagina)
                ('bgBannerProdutos.jpg','produtos'),
                ('bgBannerServicos.jpg','servicos');";
 $stmt = $conexao->prepare($sql);
+$stmt->execute();
+$stmt = null;
+
+echo 'Inserindo usuarios<br/>';
+$senha = password_hash('teste',PASSWORD_DEFAULT);
+$sql = "INSERT INTO usuarios (usuario, senha)
+        VALUES ('junior',:senha)";
+$stmt = $conexao->prepare($sql);
+$stmt->bindParam(':senha',$senha,PDO::PARAM_STR);
 $stmt->execute();
 $stmt = null;

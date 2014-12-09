@@ -25,6 +25,10 @@ $pagina = getPagina($rota);
     } elseif($rota=='home'){
         echo $banner;
         echo '<div class="col-lg-12" id="servicos">';
+        $pagina = getPagina('home');
+        echo '<h2>'.$pagina['titulo'].'</h2>';
+        echo '<p>'.nl2br($pagina['conteudo']).'</p>';
+
         foreach(getProdutosServicos('produtos') as $rowProdutos){
             echo '<div class="col-lg-4">';
             echo '<img class="img-circle" src="img/'.$rowProdutos['imagem'].'" alt="'.$rowProdutos['titulo'].'" style="width: 250px; height: 250px;">';
@@ -37,12 +41,16 @@ $pagina = getPagina($rota);
     } elseif($rota=='empresa'){
         echo $banner;
         echo '<div class="col-lg-12" id="servicos">';
+        $pagina = getPagina('empresa');
         echo '<h2>'.$pagina['titulo'].'</h2>';
-        echo '<p>'.$pagina['conteudo'].'</p>';
+        echo '<p>'.nl2br($pagina['conteudo']).'</p>';
         echo '</div>';
     } elseif($rota=='produtos'){
         echo $banner;
         echo '<div class="col-lg-12" id="servicos">';
+        $pagina = getPagina('produtos');
+        echo '<h2>'.$pagina['titulo'].'</h2>';
+        echo '<p>'.nl2br($pagina['conteudo']).'</p>';
         foreach(getProdutosServicos('produtos') as $rowProdutos){
             echo '<h2>'.$rowProdutos['titulo'].'</h2>';
             echo '<p>'.nl2br($rowProdutos['descricao']).'</p>';
@@ -51,6 +59,9 @@ $pagina = getPagina($rota);
     } elseif($rota=='servicos'){
         echo $banner;
         echo '<div class="col-lg-12" id="servicos">';
+        $pagina = getPagina('servicos');
+        echo '<h2>'.$pagina['titulo'].'</h2>';
+        echo '<p>'.nl2br($pagina['conteudo']).'</p>';
         foreach(getProdutosServicos('servicos') as $rowServicos){
             echo '<h2>'.$rowServicos['titulo'].'</h2>';
             echo '<p>'.nl2br($rowServicos['descricao']).'</p>';

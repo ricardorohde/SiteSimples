@@ -23,6 +23,16 @@ function getPagina($pagina){
     return $resultado;
 }
 
+function getUmProdutoServico($id){
+    $sql = "SELECT * FROM produtoseservicos WHERE idprodutoeservico=:id LIMIT 1";
+    $conexao = conecta();
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+    $stmt->execute();
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $resultado;
+}
+
 function getProdutosServicos($tipo){
     $sql = "SELECT * FROM produtoseservicos WHERE tipo=:tipo";
     $conexao = conecta();
@@ -70,3 +80,61 @@ function pesquisaProdutosServicosDB($p){
     return $resultado;
 }
 
+function getSenha($usuario){
+    $sql = "SELECT senha FROM usuarios WHERE usuario = :usuario LIMIT 1";
+    $conexao = conecta();
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindParam(':usuario',$usuario,PDO::PARAM_STR);
+    $stmt->execute();
+    if($stmt->rowCount()>0) {
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $resultado['senha'];
+    } else {
+        return false;
+    }
+}
+
+function getPaginasEditaveis(){
+    $sql = "SELECT * FROM paginas ORDER BY nome ASC";
+    $conexao = conecta();
+    $stmt = $conexao->prepare($sql);
+    $stmt->execute();
+    if($stmt->rowCount()>0) {
+        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $resultado;
+    } else {
+        return false;
+    }
+}
+
+
+
+function updatePagina($idpagina,$titulo,$conteudo){
+    $sql = "UPDATE paginas SET titulo=:titulo, conteudo=:conteudo WHERE idpagina=:idpagina LIMIT 1";
+    $conexao = conecta();
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindParam(':idpagina',$idpagina,PDO::PARAM_INT);
+    $stmt->bindParam(':titulo',$titulo,PDO::PARAM_STR);
+    $stmt->bindParam(':conteudo',$conteudo,PDO::PARAM_STR);
+    $stmt->execute();
+    if($stmt->rowCount()>0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function updateProdutoServico($idprodutoeservico,$titulo,$descricao){
+    $sql = "UPDATE produtoseservicos SET titulo=:titulo, descricao=:descricao WHERE idprodutoeservico=:idprodutoeservico LIMIT 1";
+    $conexao = conecta();
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindParam(':idprodutoeservico',$idprodutoeservico,PDO::PARAM_INT);
+    $stmt->bindParam(':titulo',$titulo,PDO::PARAM_STR);
+    $stmt->bindParam(':descricao',$descricao,PDO::PARAM_STR);
+    $stmt->execute();
+    if($stmt->rowCount()>0) {
+        return true;
+    } else {
+        return false;
+    }
+}

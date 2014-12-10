@@ -2,6 +2,7 @@
 session_start();
 
 require_once('inc/seguranca.php');
+require_once('../inc/config.php');
 require_once('../inc/database.php');
 
 if(estaLogado()==false){

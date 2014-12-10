@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('inc/seguranca.php');
+require_once('../inc/config.php');
 require_once('../inc/database.php');
 
 if(isset($_POST['usuario']) and $_POST['usuario']!=''){

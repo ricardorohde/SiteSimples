@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="email">E-mail:</label>
                         <div class="col-md-8">
-                            <input id="email" name="email" type="text" placeholder="Informe seu e-mail" class="form-control input-md" required="">
+                            <input id="email" name="email" type="email" placeholder="Informe seu e-mail" class="form-control input-md" required="">
                         </div>
                     </div>
 

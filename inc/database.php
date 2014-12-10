@@ -1,17 +1,4 @@
 <?php
-function conecta(){
-    $driverDB = "mysql";
-    $hostDB   = "localhost";
-    $nomeDB = "sitesimples";
-    $usuarioDB = "root";
-    $senhaDB = "root";
-    try {
-        $conexao = new \PDO($driverDB . ':host=' . $hostDB . ';dbname=' . $nomeDB, $usuarioDB, $senhaDB);
-        return $conexao;
-    } catch (\PDOException $e) {
-        die("Erro<br />Cód.: " . $e->getCode() . "<br />Mensagem: " . $e->getMessage());
-    }
-}
 
 function getPagina($pagina){
     $sql = "SELECT * FROM paginas WHERE nome=:nome LIMIT 1";

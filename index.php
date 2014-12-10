@@ -1,4 +1,5 @@
 <?php
+require_once('inc/config.php');
 require_once('inc/database.php');
 require_once('inc/rotas.php');
 $rota = rotaAtual();
@@ -68,6 +69,7 @@ $pagina = getPagina($rota);
         }
         echo '</div>';
     } else {
+        http_response_code(404);
         $pagina = getPagina('404');
         echo '<div class="col-lg-12" id="servicos">';
         echo '<h2>'.$pagina['titulo'].'</h2>';
